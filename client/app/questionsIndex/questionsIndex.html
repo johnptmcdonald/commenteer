@@ -1,0 +1,34 @@
+<header class="hero-unit" id="banner">
+  <div class="container">
+    <h1>Commenteer</h1>
+    <p class="lead">Get answers</p>
+</header>
+
+<div class="container">
+  <br/>
+  <div style="text-align: center">
+    <a type="button" class="btn btn-primary" href="/questions/create">Ask A Question</a>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Question</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="question in $ctrl.questions">
+        <td>
+          <a ng-href="/questions/show/{{question._id}}" style="font-size: large">{{question.title}}</a>
+          <span> - {{question.answers.length}} answers</span>
+          <span ng-repeat="tag in question.tags">
+          	<span class='label label-info'>
+          		{{tag.text}}
+          	</span>
+          	&nbsp;
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
